@@ -5,6 +5,6 @@ int main() {
     // Please write your code here.
     int n;
     cin >> n;
-    cout << "Your score is " << n << " point."
+    cout << "Your score is " << n << " point.";
     return 0;
 }
