@@ -40,7 +40,7 @@ void Backtracking(int cnt, int s)
         if(flag)
         {
             choosed.push_back(lines[i]);
-            Backtracking(cnt+1, s+1);
+            Backtracking(cnt+1, i+1);
             choosed.pop_back();
         }
     }
@@ -60,5 +60,6 @@ int main() {
     sort(lines.begin(), lines.end(), comp);
     Backtracking(0, 0);
     cout << res;
+
     return 0;
 }
