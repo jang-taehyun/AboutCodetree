@@ -4,7 +4,7 @@ using namespace std;
 
 string expression;
 int num['f' - 'a'];
-int res = 0;
+int res = -512;
 
 int Cal()
 {
@@ -52,5 +52,6 @@ int main() {
     // Please write your code here.
     Backtracking(0);
     cout << res;
+
     return 0;
 }
