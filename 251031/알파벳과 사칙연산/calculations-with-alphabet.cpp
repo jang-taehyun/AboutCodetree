@@ -3,7 +3,7 @@
 using namespace std;
 
 string expression;
-int num['f' - 'a'];
+int num['f' - 'a' + 1];
 int res = -512;
 
 int Cal()
@@ -22,6 +22,7 @@ int Cal()
                 op1 -= op2;
             else
                 op1 *= op2;
+            op.pop();
         }
         else
             op.push(expression[i]);
@@ -32,9 +33,9 @@ int Cal()
 
 void Backtracking(int cnt)
 {
-    if(cnt >= 'f' - 'a')
+    if(cnt >= 'f' - 'a' + 1)
     {
-        int tmp = Cal();
+        int tmp = Cal(); 
         res = (tmp > res ? tmp : res);
         return;
     }
