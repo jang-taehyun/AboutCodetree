@@ -7,27 +7,23 @@ vector<int> num;
 vector<int> player;
 int res=0;
 
-void Backtracking(int idx, int score)
+void Backtracking(int idx)
 {
     if(idx >= n)
     {
-        res = (score > res ? score : res);
+        int cnt = 0;
+        for(int i=0; i<k; ++i)
+            if(player[i] >= m)
+                ++cnt;
+        res = (cnt > res ? cnt : res);
         return;
     }
 
     for(int i=0; i<k; ++i)
     {
-        if(player[i] < m)
-        {
-            player[i] += num[idx];
-            if(player[i] >= m)
-                Backtracking(idx+1, score+1);
-            else
-                Backtracking(idx+1, score);
-            player[i] -= num[idx];
-        }
-        else
-            Backtracking(idx+1, score);
+        player[i] += num[idx];
+        Backtracking(idx+1);
+        player[i] -= num[idx];
     }
 }
 
@@ -41,7 +37,7 @@ int main() {
     }
 
     // Please write your code here.
-    Backtracking(0, 0);
+    Backtracking(0);
     cout << res;
 
     return 0;
