@@ -26,6 +26,8 @@ void Backtracking(int idx, int score)
                 Backtracking(idx+1, score);
             player[i] -= num[idx];
         }
+        else
+            Backtracking(idx+1, score);
     }
 }
 
